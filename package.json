@@ -1,0 +1,16 @@
+{
+  "name": "serverless-pixels",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Devin Eldreth <devin.eldreth@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "start": "serverless offline start"
+  },
+  "devDependencies": {
+    "serverless": "^1.27.3",
+    "serverless-appsync-plugin": "^1.0.0",
+    "serverless-dynamodb-local": "^0.2.30",
+    "serverless-offline": "^3.25.4"
+  }
+}

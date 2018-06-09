@@ -1,0 +1,40 @@
+service: serverless-pixels
+
+frameworkVersion: ">=1.21.0 <2.0.0"
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-1
+
+plugins:
+  - serverless-offline
+  - serverless-dynamodb-local
+  - serverless-appsync-plugin
+
+custom:
+  dynamodb:
+    start:
+      port: 8000
+      inMemory: false
+      migrate: true
+      seed: true
+
+resources:
+  Resources:
+    PixelsTable:
+      Type: "AWS::DynamoDB::Table"
+      Properties:
+        KeySchema:
+          -
+            AttributeName: program_id
+            KeyType: HASH
+        AttributeDefinitions:
+          -
+            AttributeName: program_id
+            AttributeType: S
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: "Pixels"
