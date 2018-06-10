@@ -1,0 +1,13 @@
+type Pixel {
+  pixel_id: ID!
+  program_id: String!
+  document: String!
+}
+
+type Query {
+  getPixels(program_id: String!): [Pixel]!
+}
+
+schema {
+  query: Query
+}
