@@ -1,0 +1,13 @@
+{
+  "version" : "2017-02-28",
+  "operation" : "Query",
+  "query" : {
+    "expression": "program_id = :program_id",
+    "expressionValues" : {
+      ":program_id" : {
+        "S" : "${context.arguments.program_id}"
+      }
+    }
+  },
+  "index": "program-pixels"
+}
